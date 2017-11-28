@@ -34,12 +34,10 @@ class WhichHalf(play.Play):
         # eg: self.add_state(WhichHalf.State.<???>,
         #                    behavior.Behavior.State.running)
         # ----------------------------------------------------
-        self.add_state(WhichHalf.State.start, behavior.Behavior.State.start)
-        # self.add_state(WhichHalf.State.processing, behavior.Behavior.State.running)
-        self.add_state(WhichHalf.State.terminated, behavior.Behavior.State.completed)
+        
 
-        self.add_state(WhichHalf.State.topHalf, behavior.Behavior.running)
-        self.add_state(WhichHalf.State.bottomHalf, behavior.Behavior.running)
+        self.add_state(WhichHalf.State.topHalf, behavior.Behavior.State.running)
+        self.add_state(WhichHalf.State.bottomHalf, behavior.Behavior.State.running)
 
         # Add your state transitions using 'add_transition'.
         # eg: self.add_transition(behavior.Behavior.State.start,
@@ -53,8 +51,8 @@ class WhichHalf(play.Play):
         self.add_transition(behavior.Behavior.State.start,
         	self.State.topHalf, lambda: True, 'immediately'
         	)
-        self.add_transition(self.State.topHalf, self.State.bottomHalf, lambda: main.ball().pos.y < constants.Field.length/2, 'bottom half')
-        self.add_transition(self.State.bottomHalf, self.State.topHalf, lambda: main.ball().pos.y > constants.Field.length/2, 'top half')
+        self.add_transition(self.State.topHalf, self.State.bottomHalf, lambda: main.ball().pos.y < constants.Field.Length/2, 'bottom half')
+        self.add_transition(self.State.bottomHalf, self.State.topHalf, lambda: main.ball().pos.y > constants.Field.Length/2, 'top half')
         # Define your own 'on_enter' and 'execute' functions here.
         # eg: def on_enter_<???>(self):
         #         print('Something?')
@@ -62,9 +60,9 @@ class WhichHalf(play.Play):
         #         print('Something?')
         # ---------------------------------------------------------
 
-        def on_enter_topHalf():
-        	print("Now in top half")
+    def on_enter_topHalf(self):
+    	print("Now in top half")
 
-        def on_enter_bottomHalf():
-        	print("Now in bottom half")
+    def on_enter_bottomHalf(self):
+    	print("Now in bottom half")
 		
