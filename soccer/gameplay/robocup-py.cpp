@@ -655,6 +655,7 @@ BOOST_PYTHON_MODULE(robocup) {
         .def("near_point", &Geometry2d::Point::nearPoint)
         .def("dist_to", &Geometry2d::Point::distTo)
         .def("direction", &Geometry2d::Point::direction)
+        .def("angle_between", &Geometry2d::Point::angleBetween)
         .def("nearly_equals", &Geometry2d::Point::nearlyEquals)
         .staticmethod("direction");
 
@@ -794,6 +795,7 @@ BOOST_PYTHON_MODULE(robocup) {
         .def("set_avoid_opponents", &OurRobot_set_avoid_opponents)
         .def("set_dribble_speed", &OurRobot::dribble)
         .def("has_ball", &OurRobot::hasBall)
+        .def("has_ball_raw", &OurRobot::hasBallRaw)
         .def("last_kick_time", &OurRobot::lastKickTime)
         .def("just_kicked", &OurRobot::justKicked)
         .def("has_chipper", &OurRobot::chipper_available)
