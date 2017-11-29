@@ -92,13 +92,6 @@ void GamepadJoystick::update() {
     // cout << endl;
 
     // Rotation
-    auto leftX = SDL_JoystickGetAxis(_joystick, 0) / AXIS_MAX;
-    // Move L/R
-    auto rightX = SDL_JoystickGetAxis(_joystick, 2) / AXIS_MAX;
-    // Move U/D
-    auto rightY = -SDL_JoystickGetAxis(_joystick, 3) / AXIS_MAX;
-
-    // Rotation
     auto rightX = SDL_JoystickGetAxis(_joystick, 2) / AXIS_MAX; 
     // Move L/R
     auto leftX = SDL_JoystickGetAxis(_joystick, 0) / AXIS_MAX;
